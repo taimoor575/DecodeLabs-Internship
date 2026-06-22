@@ -1,0 +1,95 @@
+==============================================================================
+PROJECT 3: PHISHING AWARENESS ANALYSIS - TRIAGE REPORT
+DecodeLabs Cybersecurity Internship | Batch 2026
+==============================================================================
+
+--- MSG-01 (Email) ---
+Subject : FW: Urgent Your Account Security Alert
+From    : Microsoft Support <support@logins-updates.com>
+Verdict : MALICIOUS  (risk score: 33)
+Action  : Block & Escalate
+Suspicious Links:
+   - http://amaz0n-login-secure.com/verify?id=83920
+Suspicious Keywords: ['verify your identity', 'immediately', 'account will be locked', 'password', 'locked', 'suspension']
+Red Flags Identified:
+   1. Urgency triggers: ['immediately', 'locked', 'suspension']
+   2. Fear/greed triggers: ['account will be locked', 'verify your identity']
+   3. Requests sensitive info/financial action: ['password']
+   4. Possible lookalike/typosquat of 'amazon' in domain: amaz0n-login-secure.com
+   5. Combosquatting pattern (brand + security word): amaz0n-login-secure.com
+   6. Display-name spoofing: shows 'Microsoft Support' but the real sending domain is 'logins-updates.com', which does not match.
+   7. Reply-To (noreply@logins-updates.com) differs from From address (support@logins-updates.com).
+   8. Dangerous attachment extension found: '.iso'
+------------------------------------------------------------------------------
+
+--- MSG-02 (Email) ---
+Subject : IMMEDIATE ACTION REQUIRED: Transfer Authorization
+From    : CEO - STRICTLY CONFIDENTIAL <ceo.urgent@executive-update.com>
+Verdict : MALICIOUS  (risk score: 26)
+Action  : Block & Escalate
+Suspicious Keywords: ['bypass', 'urgent', 'confidential', 'strictly confidential', 'wire transfer', 'do not discuss', 'today', 'time-sensitive', 'ceo']
+Red Flags Identified:
+   1. Urgency triggers: ['urgent', 'time-sensitive', 'today']
+   2. Authority/impersonation language: ['ceo', 'confidential', 'strictly confidential', 'do not discuss']
+   3. Procedure-bypass / secrecy request: ['bypass', 'do not discuss']
+   4. Requests sensitive info/financial action: ['wire transfer']
+   5. Display-name spoofing: shows 'CEO - STRICTLY CONFIDENTIAL' but the real sending domain is 'executive-update.com', which does not match.
+------------------------------------------------------------------------------
+
+--- MSG-03 (Email) ---
+Subject : Q3 Project Status Update - Non-Urgent
+From    : Sarah Lee (Project Manager) <sarah.lee@company.com>
+Verdict : SAFE  (risk score: 0)
+Action  : Close
+Red Flags Identified: None
+------------------------------------------------------------------------------
+
+--- MSG-04 (SMS) ---
+Subject : None
+From    : +1-202-555-0114 <+1-202-555-0114>
+Verdict : MALICIOUS  (risk score: 10)
+Action  : Block & Escalate
+Suspicious Links:
+   - http://usps-track.delivery-update.info/conf?p=44213
+Suspicious Keywords: ['within 24 hours']
+Red Flags Identified:
+   1. Urgency triggers: ['within 24 hours']
+   2. Combosquatting pattern (brand + security word): usps-track.delivery-update.info
+   3. Uncommon/high-risk TLD: usps-track.delivery-update.info
+------------------------------------------------------------------------------
+
+--- MSG-05 (Email) ---
+Subject : Mandatory: Password expires in 24 hrs
+From    : IT Security <it-security@company.com>
+Verdict : SUSPICIOUS  (risk score: 2)
+Action  : Warn User
+Suspicious Keywords: ['password']
+Red Flags Identified:
+   1. Requests sensitive info/financial action: ['password']
+------------------------------------------------------------------------------
+
+--- MSG-06 (Email + Voicemail) ---
+Subject : Re: My Voice Message
+From    : Director of Finance <director.finance@companygroup-corp.net>
+Verdict : MALICIOUS  (risk score: 24)
+Action  : Block & Escalate
+Suspicious Keywords: ['urgent', 'before close of business', 'asap', 'today', 'account number']
+Red Flags Identified:
+   1. Urgency triggers: ['urgent', 'today', 'asap', 'before close of business']
+   2. Requests sensitive info/financial action: ['account number']
+   3. Display-name spoofing: shows 'Director of Finance' but the real sending domain is 'companygroup-corp.net', which does not match.
+   4. Display-name spoofing: shows 'Director of Finance' but the real sending domain is 'companygroup-corp.net', which does not match.
+   5. Callback/TOAD pattern: message provides only a phone number, no link, pressuring a call.
+   6. Possible deepfake-voice follow-up: references an audio voicemail to add false legitimacy.
+------------------------------------------------------------------------------
+
+--- MSG-07 (Flyer/QR (physical or PDF)) ---
+Subject : Scan to Unlock Your Account
+From    : Google Account Recovery <None>
+Verdict : MALICIOUS  (risk score: 9)
+Action  : Block & Escalate
+Suspicious Keywords: ['unusual activity', 'verify your identity', 'permanent lockout']
+Red Flags Identified:
+   1. Fear/greed triggers: ['unusual activity', 'verify your identity', 'permanent lockout']
+   2. Quishing pattern: message asks the user to scan a QR code (bypasses normal URL/link scanning).
+------------------------------------------------------------------------------
